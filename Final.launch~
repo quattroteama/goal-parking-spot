@@ -1,0 +1,7 @@
+<launch>
+
+
+
+<node pkg="goal_parkingspot" type="goal_parkingspot.py" name="goal" args="$(find goal_parkingspot)/src/goalCoordinate.txt" output="screen"/>
+
+</launch>
