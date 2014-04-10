@@ -7,7 +7,7 @@ from geometry_msgs.msg import PoseStamped, Point, Quaternion, PoseWithCovariance
 
 def goal_parkingspot():
     
-    files = sys.argv[0]
+    files = sys.argv[1]
     pub = rospy.Publisher('move_base_simple/goal', PoseStamped)
     rospy.init_node('goal_parkingspot')
     coordinates = open(files,'r');
@@ -25,7 +25,7 @@ def goal_parkingspot():
     initial_spot.header.stamp = current_time;
     initial_spot.header.frame_id = "/map";
     initial_spot.pose.pose.position.x = 5.0;
-    initial_spot.pose.pose.position.y = 0.9;
+    initial_spot.pose.pose.position.y = 1.2;
     initial_spot.pose.pose.position.z = 0;
     initial_spot.pose.pose.orientation.x = 0;
     initial_spot.pose.pose.orientation.y = 0;
@@ -69,16 +69,16 @@ def goal_parkingspot():
     print goal_spot
     print initial_spot
     
+    rospy.sleep(5.0)
     pub2.publish(initial_spot) 
     rospy.sleep(1.0);
     pub2.publish(initial_spot) 
     rospy.sleep(1.0);
     pub2.publish(initial_spot) 
-   
-         
+        
     while not rospy.is_shutdown():
          pub.publish(goal_spot)         
-         rospy.sleep(20.0);
+         rospy.sleep(15.0);
 
 if __name__ == '__main__':
     try:

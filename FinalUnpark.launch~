@@ -1,0 +1,5 @@
+<launch>
+
+<node pkg="goal_parkingspot" type="goal_parkingspot_unpark.py" name="goalu" args="$(find goal_parkingspot)/src/goalCoordinateUnpark.txt" />
+
+</launch>
